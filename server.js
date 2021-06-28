@@ -18,11 +18,13 @@ app.use(express.static("public"));
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  useNewUrlParser: true
 });
 
 // routes
-app.use(require("./Develop/routes/api.js"));
+app.use(require("./routes/api.js"));
 
 app.listen(PORT, () => {
   console.log(`🌍 Connected on localhost:${PORT}`);
